@@ -11,8 +11,8 @@ resources:
   - repository: self
   - repository: dfc-devops
     type: github
-    name: SkillsFundingAgency/dfc-devops
-    endpoint: 'GitHub (ESFA)'
+    name: olusola-adio/dfc-devops
+    endpoint: 'olusola-adio'
     ref: refs/tags/v1.10.2
 
 pr:
@@ -21,7 +21,7 @@ pr:
     - master
 
 pool:
-  name: 'NCS - CI and CD'
+  name: windows-latest
 
 stages:
 
