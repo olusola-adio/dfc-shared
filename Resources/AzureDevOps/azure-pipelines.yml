@@ -69,7 +69,7 @@ stages:
   jobs:
   - template: JobTemplates\Deploy.yml
     parameters:
-      AzureSubscription: 'SFA-CDH-Dev/Test (962cae10-2950-412a-93e3-d8ae92b17896)'
+      AzureSubscription: 'Visual Studio Enterprise Subscription – MPN(d28ae51b-c7ef-41b3-8ee0-644dac2b5152)'
       AcrResourceGroup: $(ACRResourceGroup)
       AksAdClientApplicationName: $(AksAdClientApplicationName)
       AksAdServerApplicationName: $(AksAdServerApplicationName)
@@ -103,7 +103,7 @@ stages:
   jobs:
   - template: JobTemplates\Deploy.yml
     parameters:
-      AzureSubscription: 'SFA-CDH-Dev/Test (962cae10-2950-412a-93e3-d8ae92b17896)'
+      AzureSubscription: 'Visual Studio Enterprise Subscription – MPN(d28ae51b-c7ef-41b3-8ee0-644dac2b5152)'
       AcrResourceGroup: $(ACRResourceGroup)
       AksAdClientApplicationName: $(AksAdClientApplicationName)
       AksAdServerApplicationName: $(AksAdServerApplicationName)
@@ -137,7 +137,7 @@ stages:
   jobs:
   - template: JobTemplates\Deploy.yml
     parameters:
-      AzureSubscription: 'SFA-CDH-Dev/Test (962cae10-2950-412a-93e3-d8ae92b17896)'
+      AzureSubscription: 'Visual Studio Enterprise Subscription – MPN(d28ae51b-c7ef-41b3-8ee0-644dac2b5152)'
       AcrResourceGroup: $(ACRResourceGroup)
       AksAdClientApplicationName: $(AksAdClientApplicationName)
       AksAdServerApplicationName: $(AksAdServerApplicationName)
