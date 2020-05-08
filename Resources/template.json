@@ -299,11 +299,11 @@
     }
   },
   "variables": {
-    "dfcDevOpsTemplatesUrl": "https://raw.githubusercontent.com/SkillsFundingAgency/dfc-devops/master/ArmTemplates/",
+    "dfcDevOpsTemplatesUrl": "https://raw.githubusercontent.com/olusola-adio/dfc-devops/master/ArmTemplates/",
     "metadata": {
       "comment": "Revert localTemplatesUrl path back to master when merging"
     },
-    "localTemplatesUrl": "https://raw.githubusercontent.com/SkillsFundingAgency/dfc-shared/master/Resources/",
+    "localTemplatesUrl": "https://raw.githubusercontent.com/olusola-adio/dfc-shared/master/Resources/",
     "keyVaultName": "[concat(parameters('sharedPrefix'),'-kv')]",
     "storageAccountName": "[concat(replace(parameters('sharedPrefix'),'-',''),'str')]",
     "apimAdminEmail": "careersdevops@education.gov.uk",
