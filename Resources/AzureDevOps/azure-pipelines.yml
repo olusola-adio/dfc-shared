@@ -13,7 +13,6 @@ resources:
     type: github
     name: olusola-adio/dfc-devops
     endpoint: 'olusola-adio'
-    ref: refs/tags/v1.10.2
 
 pr:
   branches:
@@ -22,6 +21,9 @@ pr:
 
 pool:
   vmImage: vs2017-win2016
+
+workspace:
+    clean: all
 
 stages:
 
