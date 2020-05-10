@@ -27,7 +27,6 @@ workspace:
     clean: all
 
 stages:
-
 - stage: Build
   jobs:
   - job: TestAndPublish
