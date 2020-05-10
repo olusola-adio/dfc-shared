@@ -23,9 +23,6 @@ pr:
 pool:
   vmImage: vs2017-win2016
 
-workspace:
-    clean: all
-
 stages:
 - stage: Build
   jobs:
