@@ -27,7 +27,7 @@ The service principal requires this role on the resource group it's VNet is depl
 The resource group that will hold the AKS service and it's VNet
 
 .PARAMETER DfcDevOpsScriptRoot
-The path to the PSScripts folder in the local copy of the dfc-devops repo, eg $(System.DefaultWorkingDirectory)/_SkillsFundingAgency_dfc-devops/PSScripts in an Azure DevOps task
+The path to the PSScripts folder in the local copy of the dfc-devops repo, eg $(System.DefaultWorkingDirectory)/_olusola-adio_dfc-devops/PSScripts in an Azure DevOps task
 
 .PARAMETER SharedKeyVaultName
 The name of the KeyVault where the App Registration secrets will be stored.  Must be in the same tenant.
