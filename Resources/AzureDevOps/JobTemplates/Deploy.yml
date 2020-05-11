@@ -35,7 +35,7 @@ jobs:
             ScriptArguments: '-Environment "${{ parameters.envAbbreviation }}" -Verbose'
             azurePowerShellVersion: LatestVersion
         - checkout: dfc-devops
-          #path: 's/'
+          path: 's/dfc-devops/'
         - script: dir $(Build.SourcesDirectory)
         - script: dir $(System.DefaultWorkingDirectory)
         - script: dir $(Pipeline.Workspace)
