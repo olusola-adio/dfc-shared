@@ -10,13 +10,13 @@ variables:
 - name: envType
   value: prod
 - name: sharedPrefix
-  value: dfc-$(envAbbreviation)-shared
+  value: dwp-$(envAbbreviation)-shared
 - name: AksAgentVmSize
   value: Standard_DS12_v2
 - name: AksNodeResourceGroupName
   value: $(sharedPrefix)-aksnodes-rg
 - name: AksSubnetName
-  value: dfc-aks-01
+  value: dwp-aks-01
 - name: AksVirtualNetworkAddressPrefix
   value: 10.99
 - name: AksVnetName

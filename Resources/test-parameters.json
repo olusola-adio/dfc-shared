@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "sharedPrefix": {
-      "value": "dfc-local-shared"
+      "value": "dwp-local-shared"
     },
     "apimExists": {
       "value": false
@@ -21,7 +21,7 @@
       "value": "1.14.8"
     },
     "aksNodeResourceGroupName": {
-      "value": "dfc-foo-stax-shared-aksnodes-rg"
+      "value": "dwp-foo-stax-shared-aksnodes-rg"
     },
     "aksRbacClientAppId": {
       "value": "__AksRbacClientAppId__"
@@ -48,19 +48,19 @@
       "value": "__AksServicePrincipalSecret__"
     },
     "aksSubnetName": {
-      "value": "dfc-aks-01"
+      "value": "dwp-aks-01"
     },
     "aksVirtualNetworkAddressPrefix": {
       "value": "10.0"
     },
     "aksVnetName": {
-      "value": "dfc-foo-shared-aks-vnet"
+      "value": "dwp-foo-shared-aks-vnet"
     },
     "aksAppGatewaySubnetName": {
-      "value": "dfc-aks-ag-01"
+      "value": "dwp-aks-ag-01"
     },
     "aksAppGatewayNetworkSecurityGroup": {
-      "value": "dfc-local-aksag-nsg"
+      "value": "dwp-local-aksag-nsg"
     },
     "apimHostnameRoot": {
       "value": "api.notarealservice.org.uk"
@@ -131,26 +131,26 @@
     },
     "virtualNetworkRoutedSubnets": {
       "value": [
-        "dfc-local-ase",
-        "dfc-local-apim"
+        "dwp-local-ase",
+        "dwp-local-apim"
       ]
     },
     "virtualNetworkNonRoutedSubnets": {
       "value": [
-        "dfc-local-ag"
+        "dwp-local-ag"
       ]
     },
     "threatDetectionEmailAddress": {
       "value": []
     },
     "vnetResourceGroup": {
-      "value": "dfc-local-shared-rg"
+      "value": "dwp-local-shared-rg"
     },
     "appGatewayNetworkSecurityGroup": {
-      "value": "dfc-local-appgateway-nsg"
+      "value": "dwp-local-appgateway-nsg"
     },
     "appGatewaySubnetName": {
-      "value": "dfc-ag-01"
+      "value": "dwp-ag-01"
     },
     "appGatewayCloudServiceIpAddress": {
       "value": "4.4.4.4"

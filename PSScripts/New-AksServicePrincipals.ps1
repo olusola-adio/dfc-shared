@@ -10,14 +10,14 @@ The resource group where the Azure Container Registry that this AKS cluster will
 
 .PARAMETER AksServicePrincipalName
 The name of the AAD Service Principal that will be granted Contributor rights on the Azure Subscription that the AKS cluster resides in.
-If executed from Azure DevOps this will be the default subscription of the Azure DevOps Service Principal.  The name should be in the format dfc-<env>-shared-aks-svc.
+If executed from Azure DevOps this will be the default subscription of the Azure DevOps Service Principal.  The name should be in the format dwp-<env>-shared-aks-svc.
 
 .PARAMETER AksAdClientApplicationName
-The name of the AAD Application registration that will be granted permissions user_impersonation on the AksAdServerApplicationName app registration.  The name should be in the format dfc-<env>-shared-aks-client.
+The name of the AAD Application registration that will be granted permissions user_impersonation on the AksAdServerApplicationName app registration.  The name should be in the format dwp-<env>-shared-aks-client.
 
 .PARAMETER AksAdServerApplicationName
 The name of the AAD Application registration that will be granted permissions on the Microsoft Graph API to interact with AAD on behalf of the AKS cluster.
-The permissions granted will be Directory.Read.All and User.Read.  The name should be in the format dfc-<env>-shared-aks-api.
+The permissions granted will be Directory.Read.All and User.Read.  The name should be in the format dwp-<env>-shared-aks-api.
 
 .PARAMETER AksServicePrincipalManagedRgs
 An array of resource group names that the AksServicePrincipal will be assigned the Contributor role on.  
@@ -125,7 +125,7 @@ Set-SpnResourceGroupRoleAssignment -ResourceGroup $AksResourceGroup -RoleDefinit
 Set-SpnResourceGroupRoleAssignment -ResourceGroup $AcrResourceGroup -RoleDefinitionName "AcrPull" -ServicePrincipalObjectId $AksServicePrincipal.Id
 
 $AllAssignments = Get-AzureRmRoleAssignment -ObjectId $AksServicePrincipal.Id
-# Validates that the AksServicePrincipal has only been assigned 2 roles (One for dfc-<env>-shared-rg, the other for dfc-<env>-shared-aksnodes-rg).
+# Validates that the AksServicePrincipal has only been assigned 2 roles (One for dwp-<env>-shared-rg, the other for dwp-<env>-shared-aksnodes-rg).
 if ($AllAssignments.Count -gt 3) {
 
     Write-Warning "AksServicePrincipal has been assigned additional roles, please review"

@@ -5,7 +5,7 @@
     "sharedPrefix": {
       "type": "string",
       "metadata": {
-        "description": "Prefix for all resources created for the project (except storage account, see below). Should be in the format dfc-env-proj"
+        "description": "Prefix for all resources created for the project (except storage account, see below). Should be in the format dwp-env-proj"
       }
     },
     "aksAgentVmSize": {
