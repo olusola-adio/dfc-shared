@@ -39,6 +39,7 @@ jobs:
         - script: dir $(Build.SourcesDirectory)
         - script: dir $(System.DefaultWorkingDirectory)
         - script: dir $(Pipeline.Workspace)
+        - script: dir $(Build.SourcesDirectory)\PSScripts\
         # Create AKS service principals
         - task: AzurePowerShell@3
           displayName: 'Azure PowerShell script: New-AksServicePrincipals.ps1'
