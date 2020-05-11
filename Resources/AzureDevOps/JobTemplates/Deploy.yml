@@ -35,7 +35,7 @@ jobs:
             ScriptArguments: '-Environment "${{ parameters.envAbbreviation }}" -Verbose'
             azurePowerShellVersion: LatestVersion
         - checkout: dfc-devops
-          path: 's/dfc-devops/'
+          path: 's/'
         # Create AKS service principals
         - task: AzurePowerShell@3
           displayName: 'Azure PowerShell script: New-AksServicePrincipals.ps1'
