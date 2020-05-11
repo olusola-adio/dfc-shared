@@ -66,10 +66,10 @@
       "value": "api.notarealservice.org.uk"
     },
     "apimPortalKeyVaultCertificatePath": {
-      "value": "https://olu-foo-shared-kv.vault.azure.net/certificates/wildcard-dfc-notarealservice-org-uk/identifierstringabc123"
+      "value": "https://dwp-foo-shared-kv.vault.azure.net/certificates/wildcard-dfc-notarealservice-org-uk/identifierstringabc123"
     },
     "apimProxyKeyVaultCertificatePath": {
-      "value": "https://olu-foo-shared-kv.vault.azure.net/certificates/wildcard-dfc-notarealservice-org-uk/identifierstringabc123"
+      "value": "https://dwp-foo-shared-kv.vault.azure.net/certificates/wildcard-dfc-notarealservice-org-uk/identifierstringabc123"
     },
     "apimNetworkSecurityGroup": {
       "value": ""
