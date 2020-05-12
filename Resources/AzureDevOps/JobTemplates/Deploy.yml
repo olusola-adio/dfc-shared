@@ -65,7 +65,7 @@ jobs:
           displayName: 'Create shared configuration table'
           inputs:
             azureSubscription: ${{ parameters.AzureSubscription }}
-            ScriptPath: $(Build.SourcesDirectory)/dfc-devops/PSScripts/New-TableOnStorageAccount.ps1
+            ScriptPath: $(Build.SourcesDirectory)/PSScripts/New-TableOnStorageAccount.ps1
             ScriptArguments: '-StorageAccountName ${{ parameters.StorageAccountName }} -ResourceGroupName ${{ parameters.ResourceGroup }} -TableName Configuration'
             azurePowerShellVersion: LatestVersion
         # Deploy ARM template
