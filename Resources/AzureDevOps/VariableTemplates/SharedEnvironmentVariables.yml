@@ -16,7 +16,7 @@ variables:
 - name: msqlSubnetName
   value: dwp-msql-01
 - name: ParentBusinessTag
-  value: National Careers Service (PP)
+  value: Logion Limited
 - name: portalApiKeyVaultCertificatePath
   value: $(defaultApiKeyVaultCertificatePath)
 - name: proxyApiKeyVaultCertificatePath
