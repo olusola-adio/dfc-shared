@@ -12,7 +12,7 @@ variables:
 - name: sharedPrefix
   value: dwp-$(envAbbreviation)-shared
 - name: AksAgentVmSize
-  value: Standard_DS12_v2
+  value: Standard_B2s
 - name: AksNodeResourceGroupName
   value: $(sharedPrefix)-aksnodes-rg
 - name: AksSubnetName
