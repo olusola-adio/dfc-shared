@@ -62,6 +62,7 @@ stages:
   - template: VariableTemplates\SharedEnvironmentVariables.yml
   - group: 'KeyVault - dfc-dev-shared-kv'
   - group: dfc-shared-dev
+  - group: dfc-aks-all
   - group: dfc-shared-infrastructure-dev
   - group: dfc-cds-dev
   - template: VariableTemplates\DevEnvironmentVariables.yml
