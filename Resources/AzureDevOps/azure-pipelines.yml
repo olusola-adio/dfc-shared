@@ -67,7 +67,7 @@ stages:
         artifactName: Dfc.Shared.Resources.AksManifests
 
 - stage: DeployTo_DEV
-  condition: true
+  condition: false
   variables:
   - group: dfc-shared-all
   - group: dfc-shared-infrastructure-all
