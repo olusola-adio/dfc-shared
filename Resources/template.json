@@ -1,11 +1,11 @@
-﻿{
+{
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "sharedPrefix": {
       "type": "string",
       "metadata": {
-        "description": "Prefix for all resources created for the project (except storage account, see below). Should be in the format dwp-env-proj"
+        "description": "Prefix for all resources created for the project (except storage account, see below). Should be in thee format dwp-env-proj"
       }
     },
     "aksAgentVmSize": {
