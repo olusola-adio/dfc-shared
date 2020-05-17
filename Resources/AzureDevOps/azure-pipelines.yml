@@ -59,7 +59,7 @@ stages:
       displayName: Publish ArmTemplates Pipeline Artifact
       inputs:
         targetPath: $(Build.ArtifactStagingDirectory)/Templates
-        artifactName: Dfc.Shared.Resources.ArmTemplates
+        artifactName: Dfc.Shared.Resources.Templates
     - task: PublishPipelineArtifact@0
       displayName: Publish AksManifests Pipeline Artifact
       inputs:
