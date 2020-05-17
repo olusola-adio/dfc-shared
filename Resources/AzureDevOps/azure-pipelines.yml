@@ -48,6 +48,17 @@ stages:
       inputs:
         targetPath: $(Build.ArtifactStagingDirectory)/Resources/PSScripts
         artifactName: Dfc.Shared.Resources.PSScripts
+    - task: CopyFiles@2
+      displayName: 'Copy Templates Files to: $(Build.ArtifactStagingDirectory)'
+      inputs:
+        Contents: '*.json'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/Resources/ArmTemplates'
+        flattenFolders: true
+    - task: PublishPipelineArtifact@0
+      displayName: Publish ArmTemplates Pipeline Artifact
+      inputs:
+        targetPath: $(Build.ArtifactStagingDirectory)/Resources/ArmTemplates
+        artifactName: Dfc.Shared.Resources.ArmTemplates
     - task: PublishPipelineArtifact@0
       displayName: Publish AksManifests Pipeline Artifact
       inputs:
