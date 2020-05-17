@@ -306,7 +306,7 @@
     "localTemplatesUrl": "https://raw.githubusercontent.com/olusola-adio/dfc-shared/master/Resources/",
     "keyVaultName": "[concat(parameters('sharedPrefix'),'-kv')]",
     "storageAccountName": "[concat(replace(parameters('sharedPrefix'),'-',''),'str')]",
-    "apimAdminEmail": "careersdevops@education.gov.uk",
+    "apimAdminEmail": "olusola.adio@nimbusdti.co.uk",
     "apimName": "[concat(parameters('sharedPrefix'),'-apim')]",
     "apimOrganizationName": "Logion Limited",
     "sqlServerName": "[concat(parameters('sharedPrefix'),'-sql')]",
