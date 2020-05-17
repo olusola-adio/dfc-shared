@@ -110,7 +110,7 @@ jobs:
             scriptPath: '$(Pipeline.Workspace)/Dfc.Shared.Resources.PSScripts/Test-AksAvailableUpgrades.ps1'
             scriptArguments: '-GenerallyAvailableUpgradesCount $(GenerallyAvailableUpgradesCount) -Verbose'
             azurePowerShellVersion: LatestVersion
-        - task: TotalALM.totalalm-tokenization.tokenization-build-task.Tokenization@2
+        - task: Tokenization@2
           displayName: 'Tokenization: Transform file kured-1.2.0-dockerhub.yaml'
           inputs:
             SourcePath: $(Pipeline.Workspace)/Dfc.Shared.Resources.AksManifests/
