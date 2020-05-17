@@ -52,7 +52,7 @@ stages:
     - task: CopyFiles@2
       displayName: 'Copy Tempklate Files to: $(Build.ArtifactStagingDirectory)'
       inputs:
-        Contents: 'Resources/**/*.json'
+        Contents: 'Resources/*.json'
         TargetFolder: '$(Build.ArtifactStagingDirectory)/Templates'
         flattenFolders: true
     - task: PublishPipelineArtifact@0
