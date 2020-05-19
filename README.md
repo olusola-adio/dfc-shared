@@ -1,6 +1,6 @@
 # dwp-shared
 
-[![Build status](https://sfa-gov-uk.visualstudio.com/Digital%20First%20Careers/_apis/build/status/DFC%20Shared/dwp-shared?branchName=master)](https://sfa-gov-uk.visualstudio.com/Digital%20First%20Careers/_build/latest?definitionId=1131)
+[![Build Status](https://dev.azure.com/olusolaadio/dwp-olu/_apis/build/status/olusola-adio.dfc-shared?branchName=master)](https://dev.azure.com/olusolaadio/dwp-olu/_build/latest?definitionId=5&branchName=master)
 
 Repository with all the shared Azure resources used across the DFC services.
 Each environment (DEV, LAB, SIT, PP and PRD) will have its own shared resources.
