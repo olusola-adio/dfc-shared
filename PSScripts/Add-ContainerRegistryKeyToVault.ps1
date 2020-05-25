@@ -67,7 +67,7 @@ Set-AzKeyVaultSecret -VaultName $KeyVaultName -Name $KeyName -SecretValue $secre
 
 Write-Verbose "Stored container registry key for $($ContainerRegistryName) into the $($KeyName) secret of $($KeyVaultName)"
 Write-Output  "Stored container registry key for $($ContainerRegistryName) into the $($KeyName) secret of $($KeyVaultName)"
-}
+
 
 
 
