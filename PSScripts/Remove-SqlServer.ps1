@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-Creates an AAD group, adds members and outputs the group's Object Id to be consumed by a later task that 
+Removes an Sql Server 
 
 .DESCRIPTION
-Creates an AAD group, adds members and outputs the group's Object Id to be consumed by a later task that.  Typically that task will create a group in Kubernetes that is mapped to the AAD group.
+Removes an Sql Server
 
 .PARAMETER ResourceGroupName
 The name of the resource group
