@@ -54,11 +54,11 @@ $creds = Get-AzContainerRegistryCredential -Registry $registry
 
 $secretValue = ConvertTo-SecureString $creds.Password -AsPlainText -Force
 
-$currentSecret = Get-AzKeyVaultSecret  -VaultName $KeyVaultName -Name $KeyName
-if($currentSecret){
-    Remove-AzKeyVaultSecret -VaultName $KeyVaultName -Name $KeyName -Force
-    Remove-AzKeyVaultSecret -VaultName $KeyVaultName -Name $KeyName -InRemovedState -Force 
-}
+# $currentSecret = Get-AzKeyVaultSecret  -VaultName $KeyVaultName -Name $KeyName
+# if($currentSecret){
+#     Remove-AzKeyVaultSecret -VaultName $KeyVaultName -Name $KeyName -Force
+#     Remove-AzKeyVaultSecret -VaultName $KeyVaultName -Name $KeyName -InRemovedState -Force 
+# }
 
 Write-Verbose "Storing container registry key for $($ContainerRegistryName) into the $($KeyName) secret of $($KeyVaultName)"
 Write-Output  "Storing container registry key for $($ContainerRegistryName) into the $($KeyName) secret of $($KeyVaultName)"
