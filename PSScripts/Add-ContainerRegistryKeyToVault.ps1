@@ -56,7 +56,7 @@ $secretValue = ConvertTo-SecureString $creds.Password -AsPlainText -Force
 
 $currentSecret = Get-AzKeyVaultSecret  -VaultName $KeyVaultName -Name $KeyName
 if($currentSecret){
-    Remove-AzKeyVaultSecret -VaultName $KeyVaultName -Name $KeyName -PassThru -Force
+    Remove-AzKeyVaultSecret -VaultName $KeyVaultName -Name $KeyName
     Remove-AzKeyVaultSecret -VaultName $KeyVaultName -Name $KeyName -InRemovedState
 }
 
