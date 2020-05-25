@@ -956,6 +956,10 @@
     "apimName": {
       "type": "string",
       "value": "[variables('apimName')]"
+    },
+    "registryCredential": {
+      "type": "securestring",
+      "value": "[reference('containerRegistry','2017-05-10').outputs.registryCredential.value]"
     }
   }
 }
