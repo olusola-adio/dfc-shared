@@ -36,38 +36,3 @@ else {
     Write-Verbose "Removed $($ServerName)"
     Write-Output  "Removed $($ServerName)"
 }
-
-
-
-if ($AddServicePrincipal) {
-
-    $Context = Get-AzContext
-    $ServicePrincipal = Get-AzADServicePrincipal -ApplicationId $Context.Account.Id
-    Write-Verbose "Adding Service Principal $($ServicePrincipal.Id) to group $($AksAadGroup.DisplayName)"
-    $ExistingMember = Get-AzADGroupMember -GroupObjectId $AksAadGroup.Id | Where-Object { $_.Id -eq $ServicePrincipal.Id }
-    if (!$ExistingMember) {
-
-        Add-AzADGroupMember -MemberObjectId $ServicePrincipal.Id -TargetGroupObjectId $AksAadGroup.Id
-
-    }
-    Remove-Variable -Name ExistingMember
-
-}
-
-
-if ($UsersToAdd) {
-
-    foreach ($UserId in $UsersToAdd) {
-
-        $ExistingMember = Get-AzADGroupMember -GroupObjectId $AksAadGroup.Id | Where-Object { $_.Id -eq $UserId }
-        if (!$ExistingMember) {
-
-            Write-Verbose "Adding user $UserId to group $($AksAadGroup.DisplayName)"
-            Add-AzADGroupMember -MemberObjectId $UserId -TargetGroupObjectId $AksAadGroup.Id
-
-        }
-        Remove-Variable -Name ExistingMember
-
-    }
-
-}
