@@ -545,7 +545,9 @@
           },
           "secretPermissions": {
             "value": [
-              "set"
+              "set",
+              "delete",
+              "purge"
             ]
           },
           "certificatePermissions": {
