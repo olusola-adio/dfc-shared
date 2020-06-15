@@ -65,6 +65,17 @@ stages:
       inputs:
         targetPath: Resources/AksManifests
         artifactName: Dfc.Shared.Resources.AksManifests
+    - task: ArchiveFiles@2
+      displayName: 'Archive FunctionApp'
+      inputs:
+        rootFolderOrFile: FunctionApp
+        includeRootFolder: false
+        archiveFile: '$(System.DefaultWorkingDirectory)/zip/FunctionApp.zip'
+    - task: PublishPipelineArtifact@0
+      displayName: Publish FunctionApp Pipeline Artifact
+      inputs:
+        artifactName: 'zip'
+        targetPath: '$(System.DefaultWorkingDirectory)/zip'
 
 - stage: DeployTo_DEV
   condition: false
