@@ -612,7 +612,7 @@
             "value": "[variables('appServicePlanName')]"
           },
           "aspSize": {
-            "value": 1
+            "value": "1"
           },
           "aspInstances": {
             "value": 1
