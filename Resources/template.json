@@ -1063,7 +1063,7 @@
     },
     "functionKey": {
       "type": "string",
-      "value": "[listkeys(concat(variables('functionAppId'), '/host/default/'),'2017-05-10').functionKeys.default]"
+      "value": "[listkeys(concat(variables('functionAppId'), '/host/default/'),'2017-08-01').functionKeys.default]"
     }
   }
 }
