@@ -664,7 +664,7 @@
             "value": "[variables('sharedResourceGroup')]"
           },
           "appServiceType": {
-            "value": "[variables('functionAppName')]"
+            "value": "functionapp"
           },
           "deployStagingSlot": {
             "value": false
@@ -696,7 +696,7 @@
               },
               {
                 "name": "WEBSITE_CONTENTSHARE",
-                "value": "myslackfunctionappb274"
+                "value": "[variables('functionAppName')]"
               },
               {
                 "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
