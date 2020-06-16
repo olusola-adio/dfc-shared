@@ -16,7 +16,6 @@ $name = $Request.Query.Username
 if (-not $name) {
     #Write-Host $Request.Body
     $name = $Request.Body.username
-    #Write-Host $name 
     #$resourceName = $Request.Body.data.context.resourceName
     #Write-Host $resourceName
     #$timestamp = $Request.Body.data.context.timestamp
@@ -25,6 +24,7 @@ if (-not $name) {
 $mkdwn = $true
 
 if ($name) {
+    Write-Host "Username supplied is ${name}" 
     $status = [HttpStatusCode]::OK
     $rawcreds = @{
         mkdwn = $mkdwn
@@ -32,15 +32,16 @@ if ($name) {
         attachments = @(@{
             color= "good"
             text = $Request.Body.text 
-            #text= "Resource Name is  *${resourceName}* and timestamp was *${timestamp}*"
         })
     }
     $json = $rawcreds | ConvertTo-Json
     $body = $json
-    Invoke-WebRequest -Uri "https://hooks.slack.com/services/${hook}" -Method Post -Body $body
+    Invoke-WebRequest -Uri "${yourUri}${hook}" -Method Post -Body $body
+    Write-Host "Message sent out by Web-Request with username ${name} and body ${body}"
 } else {
     $status = [HttpStatusCode]::BadRequest
     $body = "Please pass a name on the query string or in the request body."
+    Write-Host "${body}"
 }
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.

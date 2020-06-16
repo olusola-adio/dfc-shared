@@ -322,7 +322,8 @@
     "defaultKeyVaultWriteAccessHack": "[if(empty(parameters('defaultKeyVaultWriteAccess')), 1, length(parameters('defaultKeyVaultWriteAccess')))]",
     "containerRegistryName": "[toLower(concat(replace(parameters('sharedPrefix'),'-',''),'cr'))]",
     "aksClusterName": "[concat(parameters('sharedPrefix'), '-aks')]",
-    "aksNodeResourceGroupName": "[concat(variables('aksClusterName'), 'nodes-rg')]"
+    "aksNodeResourceGroupName": "[concat(variables('aksClusterName'), 'nodes-rg')]",
+    "functionAppId": "[concat(variables('sharedResourceGroup'),'/providers/Microsoft.Web/sites/', variables('functionAppName'))]"
   },
   "resources": [
     {
@@ -1058,6 +1059,10 @@
     "apimName": {
       "type": "string",
       "value": "[variables('apimName')]"
+    },
+    "functionKey": {
+      "type": "string",
+      "value": "[listkeys(concat(variables('functionAppId'), '/host/default/'),'2017-05-10').functionKeys.default]"
     }
   }
 }
