@@ -618,7 +618,7 @@
             "value": 1
           },
           "nonASETier": {
-            "value": "Basic"
+            "value": "Standard"
           }
         }
       }
@@ -667,7 +667,7 @@
             "value": "functionapp"
           },
           "deployStagingSlot": {
-            "value": false
+            "value": true
           },
           "clientAffinity": {
             "value": true
