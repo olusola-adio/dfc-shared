@@ -309,7 +309,7 @@
     "apimAdminEmail": "olusola.adio@nimbusdti.co.uk",
     "apimName": "[concat(parameters('sharedPrefix'),'-apim')]",
     "apimOrganizationName": "Logion Limited",
-    "functionAppName": "[concat(parameters('sharedPrefix'),'-as')]",
+    "functionAppName": "[concat(parameters('sharedPrefix'),'-fa')]",
     "functionAppInsightName": "[concat(parameters('sharedPrefix'),'-ai')]",
     "appServicePlanName": "[concat(parameters('sharedPrefix'),'-asp')]",
     "sharedResourceGroup": "[concat(parameters('sharedPrefix'),'-rg')]",
@@ -618,7 +618,7 @@
             "value": 1
           },
           "nonASETier": {
-            "value": "Standard"
+            "value": "Basic"
           }
         }
       }
@@ -664,10 +664,10 @@
             "value": "[variables('sharedResourceGroup')]"
           },
           "appServiceType": {
-            "value": "functionapp"
+            "value": "[variables('functionAppName')]"
           },
           "deployStagingSlot": {
-            "value": true
+            "value": false
           },
           "clientAffinity": {
             "value": true
