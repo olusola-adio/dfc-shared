@@ -323,7 +323,6 @@
     "containerRegistryName": "[toLower(concat(replace(parameters('sharedPrefix'),'-',''),'cr'))]",
     "aksClusterName": "[concat(parameters('sharedPrefix'), '-aks')]",
     "aksNodeResourceGroupName": "[concat(variables('aksClusterName'), 'nodes-rg')]",
-    //"functionAppId": "[concat(variables('sharedResourceGroup'),'/providers/Microsoft.Web/sites/', variables('functionAppName'))]"
     "functionAppId": "[resourceId('Microsoft.Web/sites/', variables('functionAppName'))]"
   },
   "resources": [
