@@ -1059,10 +1059,10 @@
     "apimName": {
       "type": "string",
       "value": "[variables('apimName')]"
-    },
-    "functionKey": {
-      "type": "string",
-      "value": "[listkeys(concat(variables('functionAppId'), '/host/default/'),'2017-08-01').functionKeys.default]"
     }
+    // "functionKey": {
+    //   "type": "string",
+    //   "value": "[listkeys(concat(variables('functionAppId'), '/host/default/'),'2017-08-01').functionKeys.default]"
+    // }
   }
 }
