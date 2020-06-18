@@ -299,6 +299,12 @@
       "metadata": {
         "description": "Restricts HTTP(S) traffic to App Gateway to the passed in range"
       }
+    },
+    "azureSubscriptionId": {
+      "type": "string",
+      "metadata": {
+        "description": "Subscription Id"
+      }
     }
   },
   "variables": {
@@ -323,7 +329,8 @@
     "containerRegistryName": "[toLower(concat(replace(parameters('sharedPrefix'),'-',''),'cr'))]",
     "aksClusterName": "[concat(parameters('sharedPrefix'), '-aks')]",
     "aksNodeResourceGroupName": "[concat(variables('aksClusterName'), 'nodes-rg')]",
-    "functionAppId": "[resourceId('Microsoft.Web/sites/', variables('functionAppName'))]"
+    //"functionAppId": "[resourceId(variables('sharedResourceGroup'),'Microsoft.Web/sites/', variables('functionAppName'))]",
+    "functionResourceId": "[concat('/subscriptions/',parameters('azureSubscriptionId'),'/resourceGroups/',variables('sharedResourceGroup'),'/providers/Microsoft.Web/sites/',variables('functionAppName'))]"
   },
   "resources": [
     {
@@ -1063,7 +1070,7 @@
     },
     "functionKey": {
       "type": "string",
-      "value": "[listkeys(concat(variables('functionAppId'), '/host/default/'),'2018-11-01').functionKeys.default]"
+      "value": "[listkeys(concat(variables('functionResourceId'), '/host/default/'),'2018-11-01').functionKeys.default]"
     }
   }
 }

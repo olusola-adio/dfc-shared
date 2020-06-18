@@ -157,6 +157,9 @@
     },
     "appGatewayCloudServiceIpAddress": {
       "value": "4.4.4.4"
+    },
+    "azureSubscriptionId": {
+      "value": "AzureSubscriptionId"
     }
   }
 }
