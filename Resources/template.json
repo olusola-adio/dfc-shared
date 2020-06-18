@@ -716,8 +716,7 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "dependsOn": [
-        "sharedStorage",
-        "[variables('functionAppName')]"
+        "sharedStorage"
       ],
       "properties": {
         "mode": "Incremental",
