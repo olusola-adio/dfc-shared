@@ -345,6 +345,23 @@
       }
     },
     {
+      "name": "sharedStorage",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(variables('dfcDevOpsTemplatesUrl'),'storage-account.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "storageAccountName": {
+            "value": "[variables('storageAccountName')]"
+          }
+        }
+      }
+    },
+    {
       "name": "sharedAzureKubernetesServiceNetwork",
       "type": "Microsoft.Resources/deployments",
       "condition": "[parameters('aksVnetCreate')]",
@@ -582,23 +599,6 @@
       }
     },
     {
-      "name": "sharedStorage",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(variables('dfcDevOpsTemplatesUrl'),'storage-account.json')]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "storageAccountName": {
-            "value": "[variables('storageAccountName')]"
-          }
-        }
-      }
-    },
-    {
       "apiVersion": "2017-05-10",
       "name": "[variables('appServicePlanName')]",
       "type": "Microsoft.Resources/deployments",
@@ -708,7 +708,8 @@
         }
       },
       "dependsOn": [
-        "[variables('functionAppInsightName')]"
+        "[variables('functionAppInsightName')]",
+         "sharedStorage"
       ]
     },
     {
