@@ -160,9 +160,6 @@
     },
     "appGatewayCloudServiceIpAddress": {
       "value": "__appGatewayCloudServiceIpAddress__"
-    },
-    "azureSubscriptionId": {
-      "value": "__azureSubscriptionId__"
     }
   }
 }
