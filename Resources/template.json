@@ -734,7 +734,8 @@
       "kind": "functionapp",
       "dependsOn": [
           "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+          //"[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+          "sharedStorage",
           "[variables('functionAppInsightName')]"
       ],
       "properties": {
