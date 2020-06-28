@@ -612,32 +612,32 @@
           "computeMode": "Dynamic"
       }
     },
-    // {
-    //   "apiVersion": "2017-05-10",
-    //   "name": "[variables('appServicePlanName')]",
-    //   "type": "Microsoft.Resources/deployments",
-    //   "properties": {
-    //     "mode": "Incremental",
-    //     "templateLink": {
-    //       "uri": "[concat(variables('dfcDevOpsTemplatesUrl'), 'app-service-plan.json')]",
-    //       "contentVersion": "1.0.0.0"
-    //     },
-    //     "parameters": {
-    //       "appServicePlanName": {
-    //         "value": "[variables('appServicePlanName')]"
-    //       },
-    //       "aspSize": {
-    //         "value": "1"
-    //       },
-    //       "aspInstances": {
-    //         "value": 1
-    //       },
-    //       "nonASETier": {
-    //         "value": "Standard"
-    //       }
-    //     }
-    //   }
-    // },
+// {
+//   "apiVersion": "2017-05-10",
+//   "name": "[variables('appServicePlanName')]",
+//   "type": "Microsoft.Resources/deployments",
+//   "properties": {
+//     "mode": "Incremental",
+//     "templateLink": {
+//       "uri": "[concat(variables('dfcDevOpsTemplatesUrl'), 'app-service-plan.json')]",
+//       "contentVersion": "1.0.0.0"
+//     },
+//     "parameters": {
+//       "appServicePlanName": {
+//         "value": "[variables('appServicePlanName')]"
+//       },
+//       "aspSize": {
+//         "value": "1"
+//       },
+//       "aspInstances": {
+//         "value": 1
+//       },
+//       "nonASETier": {
+//         "value": "Standard"
+//       }
+//     }
+//   }
+// },
     {
       "apiVersion": "2017-05-10",
       "name": "[variables('functionAppInsightName')]",
@@ -658,126 +658,126 @@
         }
       }
     },
-    // {
-    //   "apiVersion": "2017-05-10",
-    //   "name": "[variables('functionAppName')]",
-    //   "type": "Microsoft.Resources/deployments",
-    //   "properties": {
-    //     "mode": "Incremental",
-    //     "templateLink": {
-    //       "uri": "[concat(variables('dfcDevOpsTemplatesUrl'), 'app-service.json')]",
-    //       "contentVersion": "1.0.0.0"
-    //     },
-    //     "parameters": {
-    //       "appServiceName": {
-    //         "value": "[variables('functionAppName')]"
-    //       },
-    //       "appServicePlanName": {
-    //         "value": "[variables('appServicePlanName')]"
-    //       },
-    //       "appServicePlanResourceGroup": {
-    //         "value": "[variables('sharedResourceGroup')]"
-    //       },
-    //       "appServiceType": {
-    //         "value": "functionapp"
-    //       },
-    //       "deployStagingSlot": {
-    //         "value": true
-    //       },
-    //       "clientAffinity": {
-    //         "value": true
-    //       },
-    //       "appServiceAppSettings": {
-    //         "value": [
-    //           {
-    //             "name": "FUNCTIONS_EXTENSION_VERSION",
-    //             "value": "~3"
-    //           },
-    //           {
-    //             "name": "FUNCTIONS_WORKER_RUNTIME",
-    //             "value": "powershell"
-    //           },
-    //           {
-    //             "name": "MSDEPLOY_RENAME_LOCKED_FILES",
-    //             "value": "1"
-    //           },
-    //           {
-    //             "name": "AzureWebJobsStorage",
-    //             "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';AccountKey=',listKeys(resourceId(variables('sharedResourceGroup'), 'Microsoft.Storage/storageAccounts', variables('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value, ';EndpointSuffix=core.windows.net')]"
-    //           },
-    //           {
-    //             "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-    //             "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';AccountKey=',listKeys(resourceId(variables('sharedResourceGroup'), 'Microsoft.Storage/storageAccounts', variables('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value, ';EndpointSuffix=core.windows.net')]"
-    //           },
-    //           {
-    //             "name": "WEBSITE_CONTENTSHARE",
-    //             "value": "[variables('functionAppName')]"
-    //           },
-    //           {
-    //             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-    //             "value": "[reference(variables('functionAppInsightName')).outputs.InstrumentationKey.value]"
-    //           }
-    //         ]
-    //       }
-    //     }
-    //   },
-    //   "dependsOn": [
-    //     "[variables('functionAppInsightName')]",
-    //      "sharedStorage"
-    //   ]
-    // },
     {
-      "apiVersion": "2015-08-01",
-      "type": "Microsoft.Web/sites",
+      "apiVersion": "2017-05-10",
       "name": "[variables('functionAppName')]",
-      "location": "[resourceGroup().location]",
-      "kind": "functionapp",
-      "dependsOn": [
-          "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
-          //"[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-          "sharedStorage",
-          "[variables('functionAppInsightName')]"
-      ],
+      "type": "Microsoft.Resources/deployments",
       "properties": {
-          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
-          "siteConfig": {
-              "appSettings": [
-                  {
-                      "name": "AzureWebJobsDashboard",
-                      "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
-                  },
-                  {
-                      "name": "AzureWebJobsStorage",
-                      "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
-                  },
-                  {
-                      "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                      "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
-                  },
-                  {
-                      "name": "WEBSITE_CONTENTSHARE",
-                      "value": "[toLower(variables('functionAppName'))]"
-                  },
-                  {
-                      "name": "FUNCTIONS_EXTENSION_VERSION",
-                      "value": "~3"
-                  },
-                  {
-                      "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                      "value": "8.11.1"
-                  },
-                  {
-                      "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                      "value": "[reference(variables('functionAppInsightName')).outputs.InstrumentationKey.value]"
-                  },
-                  {
-                      "name": "FUNCTIONS_WORKER_RUNTIME",
-                      "value": "powershell"
-                  }
-              ]
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(variables('dfcDevOpsTemplatesUrl'), 'app-service.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "appServiceName": {
+            "value": "[variables('functionAppName')]"
+          },
+          "appServicePlanName": {
+            "value": "[variables('appServicePlanName')]"
+          },
+          "appServicePlanResourceGroup": {
+            "value": "[variables('sharedResourceGroup')]"
+          },
+          "appServiceType": {
+            "value": "functionapp"
+          },
+          "deployStagingSlot": {
+            "value": true
+          },
+          "clientAffinity": {
+            "value": true
+          },
+          "appServiceAppSettings": {
+            "value": [
+              {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~3"
+              },
+              {
+                "name": "FUNCTIONS_WORKER_RUNTIME",
+                "value": "powershell"
+              },
+              {
+                "name": "MSDEPLOY_RENAME_LOCKED_FILES",
+                "value": "1"
+              },
+              {
+                "name": "AzureWebJobsStorage",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';AccountKey=',listKeys(resourceId(variables('sharedResourceGroup'), 'Microsoft.Storage/storageAccounts', variables('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value, ';EndpointSuffix=core.windows.net')]"
+              },
+              {
+                "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';AccountKey=',listKeys(resourceId(variables('sharedResourceGroup'), 'Microsoft.Storage/storageAccounts', variables('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value, ';EndpointSuffix=core.windows.net')]"
+              },
+              {
+                "name": "WEBSITE_CONTENTSHARE",
+                "value": "[variables('functionAppName')]"
+              },
+              {
+                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                "value": "[reference(variables('functionAppInsightName')).outputs.InstrumentationKey.value]"
+              }
+            ]
           }
-      }
+        }
+      },
+      "dependsOn": [
+        "[variables('functionAppInsightName')]",
+         "sharedStorage"
+      ]
     },
+    // {
+    //   "apiVersion": "2015-08-01",
+    //   "type": "Microsoft.Web/sites",
+    //   "name": "[variables('functionAppName')]",
+    //   "location": "[resourceGroup().location]",
+    //   "kind": "functionapp",
+    //   "dependsOn": [
+    //       "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+    //       //"[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+    //       "sharedStorage",
+    //       "[variables('functionAppInsightName')]"
+    //   ],
+    //   "properties": {
+    //       "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+    //       "siteConfig": {
+    //           "appSettings": [
+    //               {
+    //                   "name": "AzureWebJobsDashboard",
+    //                   "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
+    //               },
+    //               {
+    //                   "name": "AzureWebJobsStorage",
+    //                   "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
+    //               },
+    //               {
+    //                   "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+    //                   "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
+    //               },
+    //               {
+    //                   "name": "WEBSITE_CONTENTSHARE",
+    //                   "value": "[toLower(variables('functionAppName'))]"
+    //               },
+    //               {
+    //                   "name": "FUNCTIONS_EXTENSION_VERSION",
+    //                   "value": "~3"
+    //               },
+    //               {
+    //                   "name": "WEBSITE_NODE_DEFAULT_VERSION",
+    //                   "value": "8.11.1"
+    //               },
+    //               {
+    //                   "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+    //                   "value": "[reference(variables('functionAppInsightName')).outputs.InstrumentationKey.value]"
+    //               },
+    //               {
+    //                   "name": "FUNCTIONS_WORKER_RUNTIME",
+    //                   "value": "powershell"
+    //               }
+    //           ]
+    //       }
+    //   }
+    // },
     {
       "name": "sharedSQLServer",
       "type": "Microsoft.Resources/deployments",
