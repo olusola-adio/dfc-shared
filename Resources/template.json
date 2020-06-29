@@ -345,22 +345,29 @@
       }
     },
     {
-      "name": "sharedStorage",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(variables('dfcDevOpsTemplatesUrl'),'storage-account.json')]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "storageAccountName": {
-            "value": "[variables('storageAccountName')]"
-          }
-        }
-      }
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "apiVersion": "2019-04-01",
+      "location": "[resourceGroup().location]"
     },
+
+    // {
+    //   "name": "sharedStorage",
+    //   "type": "Microsoft.Resources/deployments",
+    //   "apiVersion": "2017-05-10",
+    //   "properties": {
+    //     "mode": "Incremental",
+    //     "templateLink": {
+    //       "uri": "[concat(variables('dfcDevOpsTemplatesUrl'),'storage-account.json')]",
+    //       "contentVersion": "1.0.0.0"
+    //     },
+    //     "parameters": {
+    //       "storageAccountName": {
+    //         "value": "[variables('storageAccountName')]"
+    //       }
+    //     }
+    //   }
+    // },
     {
       "name": "sharedAzureKubernetesServiceNetwork",
       "type": "Microsoft.Resources/deployments",
@@ -734,7 +741,7 @@
       "kind": "functionapp",
       "dependsOn": [
           "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
-          //"[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
           //"sharedStorage",
           "[variables('functionAppInsightName')]"
       ],
@@ -776,47 +783,6 @@
                   }
               ]
           }
-      }
-    },
-    {
-      "name": "sharedSQLServer",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "dependsOn": [
-        "sharedStorage"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(variables('dfcDevOpsTemplatesUrl'),'sql-server.json')]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "sqlServerName": {
-            "value": "[variables('sqlServerName')]"
-          },
-          "sqlServerAdminUserName": {
-            "value": "[parameters('sqlServerAdminUserName')]"
-          },
-          "sqlServerAdminPassword": {
-            "value": "[parameters('sqlServerAdminPassword')]"
-          },
-          "storageAccountName": {
-            "value": "[variables('storageAccountName')]"
-          },
-          "sqlServerActiveDirectoryAdminLogin": {
-            "value": "[parameters('sqlServerActiveDirectoryAdminLogin')]"
-          },
-          "sqlServerActiveDirectoryAdminObjectId": {
-            "value": "[parameters('sqlServerActiveDirectoryAdminObjectId')]"
-          },
-          "threatDetectionEmailAddress": {
-            "value": "[parameters('threatDetectionEmailAddress')]"
-          },
-          "elasticPoolName": {
-            "value": "[variables('elasticPoolName')]"
-          }
-        }
       }
     },
     {
@@ -1102,22 +1068,6 @@
     "storageAccountName": {
       "type": "string",
       "value": "[variables('storageAccountName')]"
-    },
-    "sqlServerName": {
-      "type": "string",
-      "value": "[variables('sqlServerName')]"
-    },
-    "sqlServerFqdn": {
-      "type": "string",
-      "value": "[reference('sharedSQLServer','2017-05-10').outputs.sqlServerFqdn.value]"
-    },
-    "saAdministratorLogin": {
-      "type": "string",
-      "value": "[reference('sharedSQLServer','2017-05-10').outputs.saAdministratorLogin.value]"
-    },
-    "elasticPoolName": {
-      "type": "string",
-      "value": "[variables('elasticPoolName')]"
     },
     "cdnName": {
       "type": "string",
