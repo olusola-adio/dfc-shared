@@ -348,7 +348,10 @@
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
       "apiVersion": "2019-04-01",
-      "location": "[resourceGroup().location]"
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      } 
     },
 
     // {
